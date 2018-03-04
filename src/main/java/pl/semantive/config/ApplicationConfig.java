@@ -16,6 +16,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/addClient").setViewName("addClient.html");
+        registry.addViewController("/addProfession").setViewName("addProfession.html");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 

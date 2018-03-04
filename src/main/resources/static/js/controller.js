@@ -1,7 +1,10 @@
 var app = angular.module('app', []);
 app.controller('postcontroller', function($scope, $http, $location) {
-	$scope.submitForm = function(){
-		var url = $location.absUrl() + "professions/add";
+	$scope.submitProfessionForm = function(){
+		//var url = $location.absUrl() + "professions/add";
+        var mainUrl = $location.protocol() + "://"+
+              $location.host()+":"+$location.port();
+        var url = mainUrl+"/professions/add";
 
 		var data = {
             professionName: $scope.professionName
@@ -9,6 +12,7 @@ app.controller('postcontroller', function($scope, $http, $location) {
 
         var successCallBack = function(response){
             $scope.postResultMessage = response.data;
+            window.location.assign(mainUrl);
         };
         var errorCallBack = function(response){
             $scope.postResultMessage = "Error with status: " +  response.statusText;
@@ -43,6 +47,18 @@ app.controller('postcontroller', function($scope, $http, $location) {
     		$http.post(url, data).then(successCallBack, errorCallBack);
     		$scope.professionName = "";
     	}
+
+    	$scope.getProfessions = function(){
+            var mainUrl = $location.protocol() + "://"+
+                $location.host()+":"+$location.port();
+            var url = mainUrl+"/professions";
+
+            $http.get(url).then(function (response){
+                $scope.professions = response.data
+            }, function error(response){
+                $scope.postResultMessage = "Error with status: " +  response.statusText;
+            });
+        }
 });
 
 app.controller('getcontroller', function($scope, $http, $location) {

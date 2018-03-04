@@ -14,7 +14,7 @@
 
 <div ng-app = "app">
     <div ng-controller="postcontroller">
-        <form name="clientForm" ng-submit="submitClientForm()">
+        <form name="clientForm" ng-submit="submitClientForm()" ng-init="getProfessions()">
             <div class="form-group">
                 <label class="control-label col-sm-5" for="clientNameId">Nazwa:</label>
                 <div class="col-sm-10">
@@ -30,10 +30,7 @@
                 <div class="col-sm-10">
                     <select type="text" class="form-control" name="professionId" id="clientProfessionId"
                             ng-model="professionId">
-                        <option value = 0>Lekarz</option>
-                        <option value = 1>Piekarz</option>
-                        <option value = 2>Strażak</option>
-                        <option value = 3>Policjant</option>
+                        <option ng-repeat="p in professions" value = {{p.id}}>{{p.professionName}}</option>
                     </select>
                 </div>
             </div>
