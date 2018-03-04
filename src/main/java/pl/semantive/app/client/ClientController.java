@@ -1,6 +1,7 @@
 package pl.semantive.app.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.semantive.app.client.model.Client;
 import pl.semantive.app.clients_telephone.ClientsTelephoneService;
@@ -22,7 +23,7 @@ public class ClientController {
     @Autowired
     private ClientsTelephoneService clientsTelephoneService;
 
-    @RequestMapping
+    @GetMapping
     public List<Client> findAll() {
         return clientService.getAll();
     }
