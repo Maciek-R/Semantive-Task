@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Semantive-Task</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/js/controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+
+<div class="container" ng-app="app">
+    <div ng-controller="DataController" ng-init="getClients()">
+        <div class="table">
+            <div class="tr">
+                <span class="td">ID</span>
+                <span class="td">Imie</span>
+                <span class="td">Wiek</span>
+                <span class="td">Profesja</span>
+            </div>
+            <div class ="tr" ng-repeat-start="c in clients" ng-click="selectClient(c); getTelephonesClient(c)">
+                <span class="td">{{c.id}}</span>
+                <span class="td">{{c.name}}</span>
+                <span class="td">{{c.age}}</span>
+                <span class="td">{{c.professionName}}</span>
+            </div>
+            <div class="table" ng-repeat-end ng-show="isClientSelected(c)">
+                <div class="tr" ng-show="isClientSelected(c)">
+                    <span class="td">Lista telefonów:</span>
+                </div>
+                <div class="tr" width="100%" ng-show="isClientSelected(c)" ng-repeat="t in clientTelephones">
+                    <span class="td">{{t.number}}</span>
+                </div>
+                <div class="tr" ng-show="isClientSelected(c)">
+                    <form name="clientTelephoneForm" ng-submit="submitAdditionalClientTelephone()">
+                        <span class="td">
+                            <input type="text" name="number"
+                                   placeholder="Podaj nowy numer" ng-model="$parent.number"/>
+                        </span>
+                        <span class="td">
+                            <button type="submit">Dodaj</button>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/addClient" class="btn btn-primary">Dodaj Nowego Klienta</a>
+</div>
+
+
+
+</body>
+</html>
