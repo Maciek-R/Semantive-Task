@@ -1,8 +1,8 @@
-package pl.semantive.app.client;
+package pl.semantive.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.semantive.app.client.model.Client;
+import pl.semantive.app.model.Client;
 
 import java.util.List;
 

@@ -1,3 +1,11 @@
+CREATE TABLE profession(
+	id BIGINT PRIMARY KEY,
+	name VARCHAR(50)
+);
+
+CREATE SEQUENCE profession_id_seq
+START WITH 1 INCREMENT BY 1;
+
 CREATE TABLE client(
 	id BIGINT PRIMARY KEY,
 	name VARCHAR(50),
@@ -6,14 +14,6 @@ CREATE TABLE client(
 );
 
 CREATE SEQUENCE client_id_seq
-START WITH 1 INCREMENT BY 1;
-
-CREATE TABLE profession(
-	id BIGINT PRIMARY KEY,
-	name VARCHAR(50)
-);
-
-CREATE SEQUENCE profession_id_seq
 START WITH 1 INCREMENT BY 1;
 
 CREATE TABLE clients_telephone(

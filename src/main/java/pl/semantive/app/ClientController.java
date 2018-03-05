@@ -1,9 +1,8 @@
-package pl.semantive.app.client;
+package pl.semantive.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import pl.semantive.app.client.model.Client;
+import pl.semantive.app.model.Client;
 import pl.semantive.app.clients_telephone.ClientsTelephoneService;
 import pl.semantive.app.clients_telephone.model.ClientsTelephone;
 

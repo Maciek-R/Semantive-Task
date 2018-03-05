@@ -11,4 +11,5 @@ public interface ProfessionService {
     List<Profession> getAll();
     Profession get(Long id);
     Profession add(Profession profession);
+    Profession findByProfessionName(String professionName);
 }

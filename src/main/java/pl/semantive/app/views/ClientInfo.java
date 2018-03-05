@@ -1,6 +1,6 @@
 package pl.semantive.app.views;
 
-import pl.semantive.app.client.model.Client;
+import pl.semantive.app.model.Client;
 import pl.semantive.app.profession.model.Profession;
 
 /**

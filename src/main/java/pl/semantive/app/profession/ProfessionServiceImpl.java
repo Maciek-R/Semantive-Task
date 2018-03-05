@@ -30,4 +30,9 @@ public class ProfessionServiceImpl implements ProfessionService{
     public Profession add(Profession profession) {
         return professionRepository.save(profession);
     }
+
+    @Override
+    public Profession findByProfessionName(String professionName) {
+        return professionRepository.findByProfessionName(professionName);
+    }
 }
