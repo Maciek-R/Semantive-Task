@@ -6,7 +6,7 @@ import pl.semantive.app.profession.model.Profession;
 /**
  * Created by Maciek on 2018-03-03.
  */
-public class ClientProf {
+public class ClientInfo {
 
     private Long id;
     private String name;
@@ -36,7 +36,7 @@ public class ClientProf {
 
 
 
-    public ClientProf(Client client, Profession profession, int telephonesCount) {
+    public ClientInfo(Client client, Profession profession, int telephonesCount) {
         this.id = client.getId();
         this.name = client.getName();
         this.age = client.getAge();

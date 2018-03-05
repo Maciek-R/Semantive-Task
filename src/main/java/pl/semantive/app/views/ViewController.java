@@ -25,10 +25,10 @@ public class ViewController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/clientsList")
-    public List<ClientProf> getClientsProf() {
+    @GetMapping("/clientsInfo")
+    public List<ClientInfo> getClientsProf() {
         return clientService.getAll().stream()
-                .map(client -> new ClientProf(client,
+                .map(client -> new ClientInfo(client,
                                     professionService.get(client.getProfessionId()),
                                     clientsTelephoneService.getAllByClientId(client.getId()).size()))
                 .collect(Collectors.toList());

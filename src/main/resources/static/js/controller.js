@@ -88,7 +88,7 @@ app.controller('DataController', function($scope, $http, $location) {
     	    //var url = $location.protocol() + "://"+
     	    //$location.host()+":"+$location.port()+"/clientsListReq";
     	    //console.log(url);
-            var url = $location.absUrl() + "clientsList";
+            var url = $location.absUrl() + "clientsInfo";
 
             var successCallBack = function(response){
                 $scope.clients = response.data;
