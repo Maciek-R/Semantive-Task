@@ -27,8 +27,9 @@
                 <span class="td">{{c.name}}</span>
                 <span class="td">{{c.age}}</span>
                 <span class="td">{{c.professionName}}</span>
-                <span class="btn btn-primary" ng-click="deleteClient(c.id)">-</span>
+                <span class="td btn btn-primary" title="Usuń klienta" ng-click="deleteClient(c.id)">-</span>
             </div>
+
             <div class="table" ng-repeat-end ng-show="isClientSelected(c)">
                 <div class="tr" ng-show="isClientSelected(c)">
                     <span class="td">Lista telefonów:</span>
