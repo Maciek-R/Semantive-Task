@@ -86,6 +86,23 @@ app.controller('getcontroller', function($scope, $http, $location) {
 });
 
 app.controller('DataController', function($scope, $http, $location) {
+	$scope.deleteClient = function(clientId){
+            //var url = $location.protocol() + "://"+
+            //$location.host()+":"+$location.port()+"/clientsListReq";
+            //console.log(url);
+            var url = $location.absUrl() + "clients/delete/"+clientId;
+
+            var successCallBack = function(response){
+                $scope.getClients();
+                //$scope.clients = response.data;
+                //console.log($scope.clients);
+            };
+            var errorCallBack = function(response){
+                $scope.postResultMessage = "Error with status: " +  response.statusText;
+            };
+            $http.delete(url).then(successCallBack, errorCallBack);
+    };
+
 	$scope.getClients = function(){
     	    //var url = $location.protocol() + "://"+
     	    //$location.host()+":"+$location.port()+"/clientsListReq";

@@ -39,4 +39,9 @@ public class ClientsTelephoneServiceImpl implements ClientsTelephoneService{
     public ClientsTelephone findByNumber(String number) {
         return clientsTelephoneRepository.findByNumber(number);
     }
+
+    @Override
+    public void delete(Long id) {
+        clientsTelephoneRepository.delete(id);
+    }
 }

@@ -11,4 +11,5 @@ public interface ClientService {
     List<Client> getAll();
     Client get(Long id);
     Client add(Client client);
+    void delete(Long id);
 }

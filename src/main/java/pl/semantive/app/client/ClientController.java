@@ -43,4 +43,10 @@ public class ClientController {
 
         return clientService.add(client);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        clientsTelephoneService.getAllByClientId(id).stream().forEach(cT -> clientsTelephoneService.delete(cT.getId()));
+        clientService.delete(id);
+    }
 }

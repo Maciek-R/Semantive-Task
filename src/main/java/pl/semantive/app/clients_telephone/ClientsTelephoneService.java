@@ -13,4 +13,5 @@ public interface ClientsTelephoneService {
     List<ClientsTelephone> getAllByClientId(Long clientId);
     ClientsTelephone add(ClientsTelephone client);
     ClientsTelephone findByNumber(String number);
+    void delete(Long id);
 }
