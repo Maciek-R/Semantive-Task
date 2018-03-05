@@ -2,9 +2,10 @@ div.table
 {
     display:table;
 }
-from.tr, div.tr
+form.tr, div.tr
 {
     display:table-row;
+    cursor:pointer;
 }
 span.td
 {
