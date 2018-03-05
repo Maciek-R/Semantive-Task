@@ -56,10 +56,11 @@ app.controller('postcontroller', function($scope, $http, $location) {
             var url = mainUrl+"/professions";
 
             $http.get(url).then(function (response){
-                $scope.professions = response.data
+                $scope.professions = response.data;
             }, function error(response){
                 $scope.postResultMessage = "Error with status: " +  response.statusText;
             });
+
         }
 });
 

@@ -27,14 +27,15 @@
                 <label class="control-label col-sm-5" for="clientAgeId">Wiek:</label>
                 <div class="col-sm-10">
                     <input ng-required="true" type="number" class="form-control" name="age" id="clientAgeId"
-                           placeholder="Podaj wiek klienta" ng-model="age" ng-pattern="/^([2][5-9])|([3-7][0-9])|(80)$/"/>
+                           placeholder="Podaj wiek klienta" ng-model="age" ng-pattern="/^(2[5-9]|[3-7][0-9]|80)$/"/>
                 </div>
                 <span class="col-sm-10 helpInfo" ng-show="clientForm.age.$invalid && clientForm.age.$dirty">
                     Wiek powinien być w zakresie od 25 do 80.
                 </span>
                 <label class="control-label col-sm-5" for="clientProfessionId">Zawód:</label>
                 <div class="col-sm-10">
-                    <select type="text" class="form-control" name="professionId" id="clientProfessionId" ng-model="data.selectedProfessionId">
+                    <select type="text" class="form-control" name="professionId" id="clientProfessionId" ng-model="data.selectedProfessionId" required>
+                        <option value="" ng-show="false"></option>
                         <option ng-repeat="p in professions" value = "{{p.id}}">{{p.professionName}}</option>
                     </select>
                 </div>
