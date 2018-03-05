@@ -17,12 +17,12 @@ public class ProfessionController {
     @Autowired
     private ProfessionService professionService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Profession> findAll() {
         return professionService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public Profession add(@RequestBody Profession profession) {
         return professionService.add(profession);
     }

@@ -17,7 +17,7 @@ public class ClientsTelephoneController {
     @Autowired
     private ClientsTelephoneService clientsTelephoneService;
 
-    @RequestMapping
+    @GetMapping
     public List<ClientsTelephone> findAll() {
         return clientsTelephoneService.getAll();
     }
@@ -27,7 +27,7 @@ public class ClientsTelephoneController {
         return clientsTelephoneService.get(id);
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ClientsTelephone add(@RequestBody ClientsTelephone clientsTelephone) {
         if(clientsTelephoneService.findByNumber(clientsTelephone.getNumber())!=null)
             return null;

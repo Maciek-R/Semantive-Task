@@ -3,7 +3,7 @@ app.controller('Postcontroller', function($scope, $http, $location) {
 	$scope.submitProfessionForm = function(){
         var mainUrl = $location.protocol() + "://"+
               $location.host()+":"+$location.port();
-        var url = mainUrl+"/professions/add";
+        var url = mainUrl+"/professions";
 
 		var data = {
             professionName: $scope.professionName
@@ -28,7 +28,7 @@ app.controller('Postcontroller', function($scope, $http, $location) {
 	$scope.submitClientForm = function(){
 	        var mainUrl = $location.protocol() + "://"+
                 $location.host()+":"+$location.port();
-	        var url = mainUrl+"/clients/add";
+	        var url = mainUrl+"/clients";
 
     		var data = {
                 name: $scope.name,
@@ -64,7 +64,7 @@ app.controller('Postcontroller', function($scope, $http, $location) {
 
 app.controller('DataController', function($scope, $http, $location) {
 	$scope.deleteClient = function(clientId){
-            var url = $location.absUrl() + "clients/delete/"+clientId;
+            var url = $location.absUrl() + "clients/"+clientId;
 
             var successCallBack = function(response){
                 $scope.getClients();
@@ -113,7 +113,7 @@ app.controller('DataController', function($scope, $http, $location) {
     $scope.submitAdditionalClientTelephone = function(){
         var mainUrl = $location.protocol() + "://"+
             $location.host()+":"+$location.port();
-        var url = mainUrl+"/clients_telephones/add";
+        var url = mainUrl+"/clients_telephones";
 
         var data = {
             number: $scope.number,

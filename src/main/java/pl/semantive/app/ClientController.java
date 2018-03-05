@@ -37,13 +37,13 @@ public class ClientController {
         return clientsTelephoneService.getAllByClientId(clientId);
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public Client add(@RequestBody Client client) {
 
         return clientService.add(client);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
         clientsTelephoneService.getAllByClientId(id).stream().forEach(cT -> clientsTelephoneService.delete(cT.getId()));
         clientService.delete(id);
