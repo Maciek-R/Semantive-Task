@@ -34,4 +34,9 @@ public class ClientsTelephoneServiceImpl implements ClientsTelephoneService{
     public ClientsTelephone add(ClientsTelephone clientsTelephone) {
         return clientsTelephoneRepository.save(clientsTelephone);
     }
+
+    @Override
+    public ClientsTelephone findByNumber(String number) {
+        return clientsTelephoneRepository.findByNumber(number);
+    }
 }

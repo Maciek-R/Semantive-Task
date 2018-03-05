@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface ClientsTelephoneRepository extends JpaRepository<ClientsTelephone, Long>{
     List<ClientsTelephone> findAllByClientId(Long id);
+    ClientsTelephone findByNumber(String number);
 }

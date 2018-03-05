@@ -29,7 +29,9 @@ public class ClientsTelephoneController {
 
     @PostMapping("/add")
     public ClientsTelephone add(@RequestBody ClientsTelephone clientsTelephone) {
+        if(clientsTelephoneService.findByNumber(clientsTelephone.getNumber())!=null)
+            return null;
+
         return clientsTelephoneService.add(clientsTelephone);
     }
-
 }

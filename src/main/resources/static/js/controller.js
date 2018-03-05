@@ -135,7 +135,12 @@ app.controller('DataController', function($scope, $http, $location) {
         console.log($scope.number);
 
         var successCallBack = function(response){
-            $scope.postResultMessage = response.data;
+            if(response.data != ""){
+                $scope.postResultMessage = "Pomyślnie dodano numer.";
+            }
+            else{
+                $scope.postResultMessage = "Istnieje już taki numer w bazie.";
+            }
         };
         var errorCallBack = function(response){
             $scope.postResultMessage = "Error with status: " +  response.statusText;

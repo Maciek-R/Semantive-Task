@@ -12,4 +12,5 @@ public interface ClientsTelephoneService {
     ClientsTelephone get(Long id);
     List<ClientsTelephone> getAllByClientId(Long clientId);
     ClientsTelephone add(ClientsTelephone client);
+    ClientsTelephone findByNumber(String number);
 }
