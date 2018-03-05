@@ -8,19 +8,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="/js/controller.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" href="validation.css"/>
 </head>
 <body>
 
 <div ng-app = "app">
     <div ng-controller="postcontroller">
-        <form name="professionForm" ng-submit="submitProfessionForm()">
+        <form name="professionForm" ng-submit="professionForm.$valid && submitProfessionForm()">
             <div class="form-group">
                 <label class="control-label col-sm-5" for="professionNameId">Nazwa:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="professionName" id="professionNameId"
-                           placeholder="Podaj nazwę zawodu" ng-model="professionName"/>
+                    <input ng-required="true" type="text" class="form-control" name="professionName" id="professionNameId"
+                           placeholder="Podaj nazwę zawodu" ng-model="professionName" ng-pattern="/^[A-Z][a-z]*$/"/>
                 </div>
+                <span class="col-sm-10 helpInfo" ng-show="professionForm.professionName.$invalid && professionForm.professionName.$dirty">
+                    Nazwa zawodu powinna rozpoczynać się z wielkiej litery, kolejne litery małe.
+                </span>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-0 col-sm-5">

@@ -9,6 +9,7 @@
     <script src="/js/controller.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="validation.css"/>
 </head>
 <body>
 
@@ -21,7 +22,7 @@
                 <span class="td">Wiek</span>
                 <span class="td">Profesja</span>
             </div>
-            <div class ="tr" ng-repeat-start="c in clients" ng-click="selectClient(c); getTelephonesClient(c)">
+            <div class ="tr" ng-class="getStyleFromTelephonesCount(c.telephonesCount)" ng-repeat-start="c in clients" ng-click="selectClient(c); getTelephonesClient(c)">
                 <span class="td">{{c.id}}</span>
                 <span class="td">{{c.name}}</span>
                 <span class="td">{{c.age}}</span>
@@ -35,13 +36,17 @@
                     <span class="td">{{t.number}}</span>
                 </div>
                 <div class="tr" ng-show="isClientSelected(c)">
-                    <form name="clientTelephoneForm" ng-submit="submitAdditionalClientTelephone()">
+                    <form name="clientTelephoneForm" ng-submit="clientTelephoneForm.$valid && submitAdditionalClientTelephone()">
                         <span class="td">
-                            <input type="text" name="number"
-                                   placeholder="Podaj nowy numer" ng-model="$parent.number"/>
+                            <input ng-required="true" type="text" name="number"
+                                   placeholder="Podaj nowy numer" ng-model="$parent.number"
+                                   ng-pattern="/^[1-9][0-9]{8}$/"/>
                         </span>
                         <span class="td">
                             <button type="submit">Dodaj</button>
+                        </span>
+                        <span class="helpInfo" ng-show="clientTelephoneForm.number.$invalid && clientTelephoneForm.number.$dirty">
+                            Numer telefonu powinien składać się z 9 cyfr. Pierwsza nie może być 0.
                         </span>
                     </form>
                 </div>

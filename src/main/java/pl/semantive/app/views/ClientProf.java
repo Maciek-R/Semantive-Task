@@ -11,6 +11,12 @@ public class ClientProf {
     private Long id;
     private String name;
     private Long age;
+    private String professionName;
+    private int telephonesCount;
+
+    public int getTelephonesCount() {
+        return telephonesCount;
+    }
 
     public Long getId() {
         return id;
@@ -28,13 +34,14 @@ public class ClientProf {
         return professionName;
     }
 
-    private String professionName;
 
-    public ClientProf(Client client, Profession profession) {
+
+    public ClientProf(Client client, Profession profession, int telephonesCount) {
         this.id = client.getId();
         this.name = client.getName();
         this.age = client.getAge();
         this.professionName = profession.getProfessionName();
+        this.telephonesCount = telephonesCount;
     }
 
 }

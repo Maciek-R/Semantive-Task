@@ -92,6 +92,7 @@ app.controller('DataController', function($scope, $http, $location) {
 
             var successCallBack = function(response){
                 $scope.clients = response.data;
+                console.log($scope.clients);
             };
             var errorCallBack = function(response){
                 $scope.postResultMessage = "Error with status: " +  response.statusText;
@@ -99,13 +100,23 @@ app.controller('DataController', function($scope, $http, $location) {
     	    $http.get(url).then(successCallBack, errorCallBack);
     };
 
+    $scope.getStyleFromTelephonesCount = function(telephonesCount){
+        switch(telephonesCount)
+        {
+            case 0: return "red";
+            case 1: return "yellow";
+            case 2: return "green";
+            default: return "blue";
+        }
+    }
+
     $scope.getTelephonesClient = function(client){
          var mainUrl = $location.protocol() + "://"+
             $location.host()+":"+$location.port();
          var url = mainUrl+"/clients/"+client.id+"/clients_telephones";
 
          $http.get(url).then(function (response){
-                $scope.clientTelephones = response.data
+                $scope.clientTelephones = response.data;
          }, function error(response){
                 $scope.postResultMessage = "Error with status: " +  response.statusText;
          });

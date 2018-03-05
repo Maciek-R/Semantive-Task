@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.semantive.app.client.ClientService;
+import pl.semantive.app.clients_telephone.ClientsTelephoneService;
 import pl.semantive.app.profession.ProfessionService;
 
 import java.util.List;
@@ -19,12 +20,17 @@ public class ViewController {
     private ProfessionService professionService;
 
     @Autowired
+    private ClientsTelephoneService clientsTelephoneService;
+
+    @Autowired
     private ClientService clientService;
 
     @GetMapping("/clientsList")
     public List<ClientProf> getClientsProf() {
         return clientService.getAll().stream()
-                .map(client -> new ClientProf(client, professionService.get(client.getProfessionId())))
+                .map(client -> new ClientProf(client,
+                                    professionService.get(client.getProfessionId()),
+                                    clientsTelephoneService.getAllByClientId(client.getId()).size()))
                 .collect(Collectors.toList());
     }
 }
