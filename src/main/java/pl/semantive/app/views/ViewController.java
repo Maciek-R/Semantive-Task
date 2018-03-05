@@ -3,7 +3,7 @@ package pl.semantive.app.views;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.semantive.app.ClientService;
+import pl.semantive.app.client.ClientService;
 import pl.semantive.app.clients_telephone.ClientsTelephoneService;
 import pl.semantive.app.profession.ProfessionService;
 

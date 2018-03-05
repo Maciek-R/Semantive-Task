@@ -1,4 +1,4 @@
-package pl.semantive.app.model;
+package pl.semantive.app.client.model;
 
 import javax.persistence.*;
 

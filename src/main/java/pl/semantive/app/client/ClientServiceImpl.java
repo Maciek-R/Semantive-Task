@@ -1,8 +1,10 @@
-package pl.semantive.app;
+package pl.semantive.app.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.semantive.app.model.Client;
+import pl.semantive.app.client.ClientRepository;
+import pl.semantive.app.client.ClientService;
+import pl.semantive.app.client.model.Client;
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * Created by Maciek on 2018-03-01.
  */
 @Service
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService {
 
     @Autowired
     private ClientRepository clientRepository;

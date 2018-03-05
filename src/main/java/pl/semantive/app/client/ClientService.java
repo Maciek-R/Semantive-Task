@@ -1,6 +1,6 @@
-package pl.semantive.app;
+package pl.semantive.app.client;
 
-import pl.semantive.app.model.Client;
+import pl.semantive.app.client.model.Client;
 
 import java.util.List;
 
