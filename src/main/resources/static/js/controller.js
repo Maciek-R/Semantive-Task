@@ -22,6 +22,10 @@ app.controller('postcontroller', function($scope, $http, $location) {
 		$scope.professionName = "";
 	}
 
+	$scope.data = {
+	    selectedProfessionId:null
+	};
+
 	$scope.submitClientForm = function(){
 	        var mainUrl = $location.protocol() + "://"+
                 $location.host()+":"+$location.port();
@@ -31,13 +35,11 @@ app.controller('postcontroller', function($scope, $http, $location) {
     		var data = {
                 name: $scope.name,
                 age: $scope.age,
-                professionId: $scope.professionId
+                professionId: $scope.data.selectedProfessionId
             };
 
             var successCallBack = function(response){
                 $scope.postResultMessage = response.data;
-                //$location.path(mainUrl + "/clientsList");
-                //window.location.assign(mainUrl + "/clientsList");
                 window.location.assign(mainUrl);
             };
             var errorCallBack = function(response){
